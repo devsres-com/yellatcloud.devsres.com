@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Yell @ cloud</title>
+    <link>/blog/</link>
+    <description>Recent content in Blog on Yell @ cloud</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ucertify AWS SysOps Certification review</title>
+      <link>/blog/ucertify-sysops-administrador-associate-review/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/ucertify-sysops-administrador-associate-review/</guid>
+      <description>Preamble - about myself For those who don&amp;rsquo;t know me, I come from a extreme Sysop background. For more than ten years, I&amp;rsquo;ve strayed away of the developer world problems, focusing on automation of regular infrastructure and other user-directed services. For the last years, though, I&amp;rsquo;ve been thrown on the eye of the hurricane that is the new agile aplication deployment and Devops world - thus becoming the senior sysadmin of the most insane, multipurpose Kubernetes-as-a-PaaS solution ever developed.</description>
+    </item>
+    
+    <item>
+      <title>AWS S3: creating bucket policy</title>
+      <link>/blog/aws-s3-bucket-policy/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/aws-s3-bucket-policy/</guid>
+      <description>Task at hand: create a bucket policy that makes an entire bucket public.
+Resources used: AWS S3, custom domain registered.
+ So I created a website and hosted it on AWS S3. It worked just as advertised, which is nice, even though it could use a &amp;lsquo;press one button and be done with it&amp;rsquo; just as their one-click-shop.
+As noticed, I had to Grant public read access to all objects on upload.</description>
+    </item>
+    
+    <item>
+      <title>AWS S3: Hosting an static Website</title>
+      <link>/blog/aws-s3-static-website/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/aws-s3-static-website/</guid>
+      <description>Task at hand: host a static website on a S3 bucket. URL for the website will be: yellatcloud.devsres.com
+Resources used: AWS S3, custom domain registered.
+ Two of the most repeated sentences on the Linkedin Learning AWS Courses I&amp;rsquo;ve met are:
+ AWS S3 (the object storage service) - is the most widely used Amazon service ever; One can host static websites on AWS S3 trivially.  Is that so? Let&amp;rsquo;s check.</description>
+    </item>
+    
+    <item>
+      <title>AWS S3: using Cloudfront for HTTPS</title>
+      <link>/blog/aws-s3-using-cloudfront-for-https/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/aws-s3-using-cloudfront-for-https/</guid>
+      <description>Task at hand: implement HTTPS to a static website hosted on S3
+Resources used: AWS S3, AWS CloudFront
+ So I created a website and hosted it on AWS S3. But no HTTPS! That&amp;rsquo;s so old-fashioned.
+Cloudfront Work in Progress!
+ Reference: AWS Cloudfront.
+ </description>
+    </item>
+    
+    <item>
+      <title>Welcome</title>
+      <link>/blog/welcome/</link>
+      <pubDate>Sat, 02 Nov 2019 02:38:44 -0300</pubDate>
+      
+      <guid>/blog/welcome/</guid>
+      <description>Teste!</description>
+    </item>
+    
+  </channel>
+</rss>

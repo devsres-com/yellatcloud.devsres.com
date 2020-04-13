@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>policy on Yell @ cloud</title>
+    <link>/categories/policy/</link>
+    <description>Recent content in policy on Yell @ cloud</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/policy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWS S3: creating bucket policy</title>
+      <link>/blog/aws-s3-bucket-policy/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/aws-s3-bucket-policy/</guid>
+      <description>Task at hand: create a bucket policy that makes an entire bucket public.
+Resources used: AWS S3, custom domain registered.
+ So I created a website and hosted it on AWS S3. It worked just as advertised, which is nice, even though it could use a &amp;lsquo;press one button and be done with it&amp;rsquo; just as their one-click-shop.
+As noticed, I had to Grant public read access to all objects on upload.</description>
+    </item>
+    
+  </channel>
+</rss>

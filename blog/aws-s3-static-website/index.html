@@ -1,0 +1,1159 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "\/"
+        },
+        "articleSection" : "blog",
+        "name" : "AWS S3: Hosting an static Website",
+        "headline" : "AWS S3: Hosting an static Website",
+        "description" : "AWS S3 as a static website host",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2019",
+        "datePublished": "2019-11-10 00:00:00 \x2b0000 UTC",
+        "dateModified" : "2019-11-10 00:00:00 \x2b0000 UTC",
+        "url" : "\/blog\/aws-s3-static-website\/",
+        "wordCount" : "1010",
+        "keywords" : [ "Blog" ]
+    }
+    </script>
+        
+            
+                <title>AWS S3: Hosting an static Website</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.69.0" />
+        
+
+
+        
+            <meta name="author" content="Marcelo Andrade">
+        
+        
+            <meta name="description" content="AWS S3 as a static website host">
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AWS S3: Hosting an static Website"/>
+<meta name="twitter:description" content="AWS S3 as a static website host"/>
+<meta name="twitter:site" content="@devsres"/>
+
+        <meta property="og:title" content="AWS S3: Hosting an static Website" />
+<meta property="og:description" content="AWS S3 as a static website host" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/aws-s3-static-website/" />
+<meta property="article:published_time" content="2019-11-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-10T00:00:00+00:00" />
+
+        <meta property="og:image" content="//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        <meta itemprop="name" content="AWS S3: Hosting an static Website">
+<meta itemprop="description" content="AWS S3 as a static website host">
+<meta itemprop="datePublished" content="2019-11-10T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-10T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1010">
+
+
+
+<meta itemprop="keywords" content="" />
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/add-on.css">
+            <link rel="stylesheet" href="/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
+
+
+      
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="/">blog</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/">
+                            <i class="fa fa-home">&nbsp;</i>Home
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>About
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/blog/">
+                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/categories/">
+                            <i class="fa fa-sitemap">&nbsp;</i>Categories
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/contact/">
+                            <i class="fa fa-envelope-o">&nbsp;</i>Contact
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>Home
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>About
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/blog/">
+                            <h3>
+                                <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/">
+                            <h3>
+                                <i class="fa fa-sitemap">&nbsp;</i>Categories
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/contact/">
+                            <h3>
+                                <i class="fa fa-envelope-o">&nbsp;</i>Contact
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/ucertify-sysops-administrador-associate-review/">Ucertify AWS SysOps Certification review</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2020-04-01'>
+                                    April 1, 2020</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/aws-s3-bucket-policy/">AWS S3: creating bucket policy</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2019-11-10'>
+                                    November 10, 2019</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/aws-s3-static-website/">AWS S3: Hosting an static Website</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2019-11-10'>
+                                    November 10, 2019</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/aws-s3-using-cloudfront-for-https/">AWS S3: using Cloudfront for HTTPS</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2019-11-10'>
+                                    November 10, 2019</time>
+                            </header>
+                            
+
+                        </article>
+                
+
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fblog%2faws-s3-static-website%2f&amp;text=AWS%20S3%3a%20Hosting%20an%20static%20Website&amp;via=devsres" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fblog%2faws-s3-static-website%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fblog%2faws-s3-static-website%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fblog%2faws-s3-static-website%2f&amp;title=AWS%20S3%3a%20Hosting%20an%20static%20Website" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fblog%2faws-s3-static-website%2f&amp;title=AWS%20S3%3a%20Hosting%20an%20static%20Website" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fblog%2faws-s3-static-website%2f&amp;title=AWS%20S3%3a%20Hosting%20an%20static%20Website" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fblog%2faws-s3-static-website%2f&amp;description=AWS%20S3%3a%20Hosting%20an%20static%20Website" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Marcelo%20Andrade&amp;body=%2fblog%2faws-s3-static-website%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="/blog/aws-s3-static-website/">AWS S3: Hosting an static Website</a></h1>
+            
+        
+        
+            <p>AWS S3 as a static website host</p>
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2019-11-10'>
+            November 10, 2019</time>
+        <span class="author">Marcelo Andrade</span>
+        
+            <p>5 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fblog%2faws-s3-static-website%2f&amp;text=AWS%20S3%3a%20Hosting%20an%20static%20Website&amp;via=devsres" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fblog%2faws-s3-static-website%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fblog%2faws-s3-static-website%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fblog%2faws-s3-static-website%2f&amp;title=AWS%20S3%3a%20Hosting%20an%20static%20Website" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fblog%2faws-s3-static-website%2f&amp;title=AWS%20S3%3a%20Hosting%20an%20static%20Website" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fblog%2faws-s3-static-website%2f&amp;title=AWS%20S3%3a%20Hosting%20an%20static%20Website" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fblog%2faws-s3-static-website%2f&amp;description=AWS%20S3%3a%20Hosting%20an%20static%20Website" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Marcelo%20Andrade&amp;body=%2fblog%2faws-s3-static-website%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
+
+  
+
+  <div id="content">
+    <p><strong>Task at hand</strong>: host a static website on a S3 bucket. URL for the website will be: <strong>yellatcloud.devsres.com</strong></p>
+<p><strong>Resources used</strong>: AWS S3, custom domain registered.</p>
+<hr>
+<p>Two of the most repeated sentences on the <a href="https://www.linkedin.com/learning/search?keywords=aws">Linkedin Learning AWS Courses</a> I&rsquo;ve met are:</p>
+<ul>
+<li>AWS S3 (the object storage service) -  is the most widely used Amazon service ever;</li>
+<li>One can host static websites on AWS S3 trivially.</li>
+</ul>
+<p>Is that so? Let&rsquo;s check. Let&rsquo;s host this pretty <a href="https://gohugo.io">Hugo</a> Website made just for this task.</p>
+<h3 id="creating-the-aws-s3-bucket">Creating the AWS S3 bucket</h3>
+<p>Basically the most important thing here is: the name of the S3 bucket <strong>must</strong> match the URL of your website.</p>
+<p>As you <strong>can&rsquo;t rename a bucket</strong>, I&rsquo;m guessing this information might save your time.</p>
+<p>So, let&rsquo;s go to <a href="https://s3.console.aws.amazon.com/s3/home">AWS S3</a> and create the yellatcloud.desvres.com bucket. Don&rsquo;t tell your troll friends about it, or they might create a bucket with the exact same name and then you&rsquo;re out of luck, as they&rsquo;re globally unique!</p>
+<p>So, on the first screen, we pick:</p>
+<ul>
+<li><em>Bucket name</em>: yellatcloud.devsres.com</li>
+<li><em>Region</em>: whatever rows your boat.</li>
+</ul>
+<p>On the second one:</p>
+<ul>
+<li><em>Versioning</em>: blank, let&rsquo;s use <a href="github.com">Github</a> to version it anyway;</li>
+<li><em>Server access logging</em>: meh, whatever, leaving it unchecked;</li>
+<li><em>Tags</em>: be creative here. every single AWS course also tells to put tags everywhere, so do it.</li>
+<li><em>Object-level logging</em>: no, thank you.</li>
+<li><em>Default encryption</em>: not that useful for a public website anyways;</li>
+<li><em>Advanced settings</em>:
+<ul>
+<li><em>Permanently allow objects in this bucket to be locked</em>: now this is an interesting feature, but not for today&rsquo;s practise. Let&rsquo;s write it down to check it on the future!</li>
+</ul>
+</li>
+<li><em>Cloud Watch request metrics</em>: no additional costs, please.</li>
+</ul>
+<p>The third screen is about blocking public access. That&rsquo;s exactly the opposite of what we want to do, so let&rsquo;s uncheck everything.</p>
+<ul>
+<li><em>Block all public access</em>: uncheck.</li>
+<li><em>Manage system permissions</em>: Do not grant Amazon S3 Log Delivery group write access to this bucket. Indeed.</li>
+</ul>
+<p>Fourth screen is just a review, and as we&rsquo;re anxious to make it work, let&rsquo;s just hit <em>Create bucket</em> without reading anything, as a good sysop.</p>
+<h3 id="uploading-the-website-to-the-s3-bucket">Uploading the website to the S3 bucket</h3>
+<p>So I should be doing this the smart way (using the AWS cli), but let&rsquo;s forget it for a minute and just try the awesomely beautiful web interface. So we click on the bucket name, and hit <em>Get Started</em>.</p>
+<p>The first screen tells you can just drag and drop files and folders there. It has a button, <em>Add files</em>, let&rsquo;s try it!</p>
+<p>Eh, didn&rsquo;t work for some reason. Wonder why.</p>
+<p>So let&rsquo;s try the drag and drop feature! it works, yay!</p>
+<p>On the second screen, we have a gotcha that might catch you if you skip it without reading:</p>
+<ul>
+<li><em>Manage users</em>: nothing to do here, unless you&rsquo;re dealing with many users on your account;</li>
+<li><em>Access for other AWS accounts</em>: similar to above, nothing to do here;</li>
+<li><em>Manage public permissions</em>: so, if you thought you had done enough by unmarking <em>Block all public access</em>, nah. On that screen, all it made was so it was possible to make stuff public, not that all stuff is public. Have to change it here to <em>Grant public read access to this object(s)</em>.</li>
+</ul>
+<p>The third screen is an interesting one: it&rsquo;s where you choose the <strong>Storage Class</strong> of your files. i</p>
+<ul>
+<li><em>Standart</em> : it&rsquo;s important to know all these options, as it&rsquo;s what determines how much $$$ you&rsquo;ll be flushing with the service. As this is a website, all files are equally relevant, so it makes no sense to pick any of the <strong>Glacier</strong> options (which are directed to backup/cold data). The other ones, like Intelligent Tiering, Standard-IA, One Zone-IA and Reduced Redundancy are oriented on providing options of different pricing. As this is not a S3 full guide, let&rsquo;s pick <em>Standart</em> for now.</li>
+</ul>
+<p>If you get too excited about clicking <em>Next</em>, you&rsquo;ll miss a couple of options:</p>
+<ul>
+<li><em>Encryption</em>: three options here, let&rsquo;s pick <em>None</em> and revisit this on a S3 specific article;</li>
+<li><em>Metadata</em>: you can add some specific headers (like Cache-Control or Content-Type) to the files you&rsquo;re uploading to S3! Now that&rsquo;s a nice thing. Just beware: you <strong>can&rsquo;t</strong> change them later!</li>
+<li><em>Tag</em>: objects inside the bucket can have tags too! Now that&rsquo;s nice (but useless for this example, so ignore).</li>
+</ul>
+<p>Next screen is the review, so just give a glance and hit <em>Upload</em>.</p>
+<h3 id="enabling-the-website-for-serving-static-content">Enabling the website for serving static content</h3>
+<p>So this is the step we&rsquo;ve been waiting for so long. It&rsquo;s hidden under the bucket&rsquo;s <em>Properties</em> tab (maybe add a tab called <em>Special Features</em>? seems more markeatable!).</p>
+<p>A lot of interesting properties here to look up after, like <em>Object Lock</em> and <em>Requester pays</em> (!). But we&rsquo;re here for <em>Static website hosting</em>, the third box. Let&rsquo;s click on it.</p>
+<p>After the click, it grows and asks some more stuff:</p>
+<ul>
+<li><em>Use this bucket to host a website</em>: yeah, that&rsquo;s the one. Let&rsquo;s click.</li>
+<li><em>Redirect requests</em>: let&rsquo;s see this one later.</li>
+</ul>
+<p>It asks some more stuff, like <em>Index document</em> and <em>Error document</em>. Funny thing they&rsquo;re required ones to save, so let&rsquo;s write with the default values suggested and <em>Save</em>.</p>
+<p>So it gave me my endpoint: <a href="http://yellatcloud.devsres.com.s3-website-sa-east-1.amazonaws.com">http://yellatcloud.devsres.com.s3-website-sa-east-1.amazonaws.com</a> . Everything should be ok, so if I hit the URL, I should just see the website, right?</p>
+<p>Well, indeed it worked.</p>
+<p>But that&rsquo;s not the only way to do it. Most people will say that setting up a <a href="/blog/aws-s3-bucket-policy/">explicit bucket policy that allows public access</a> is the right way to do it.</p>
+<p>But since it&rsquo;s too complicated, I made it on its own post.</p>
+<h3 id="but-what-about-https">But what about HTTPS?</h3>
+<p>Sorry, it&rsquo;ll be a <a href="/blog/aws-s3-using-cloudfront-for-https/">story for another time!</a></p>
+<hr>
+<p><strong>Key notes</strong></p>
+<ul>
+<li>You can&rsquo;t rename S3 buckets in AWS;</li>
+<li>S3 bucket names have to be globally unique - they&rsquo;re not restricted to your account or region. Hope you&rsquo;re not a fan of short names!</li>
+<li>S3 bucket name <strong>must match</strong> the custom domain of the website or it will just not work.</li>
+<li>S3 bucket names have to be DNS compliant, so the weirdest character you&rsquo;ll be able to use is &lsquo;-'.</li>
+<li>S3 supports <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">WORM</a>!</li>
+<li>S3 has a lot of storage classes you should check out.</li>
+</ul>
+<hr>
+<p><strong>Reference</strong>: <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">AWS on S3 WebsiteHosting</a>.</p>
+<hr>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="/categories/aws">aws</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/s3">s3</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+
+</article>
+
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yell @ cloud " + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+
+<ul class="actions pagination">
+    
+        <li><a href="/blog/aws-s3-using-cloudfront-for-https/"
+                class="button big previous">AWS S3: using Cloudfront for HTTPS</a></li>
+    
+
+    
+        <li><a href="/blog/aws-s3-bucket-policy/"
+                class="button big next">AWS S3: creating bucket policy</a></li>
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='/' class="logo"><img src="/img/main/yellatcloud.jpg" alt="Hugo Future Imperfect" /></a>
+      
+    
+    
+      <header>
+        <h2>Yell @ cloud</h2>
+        <p>Old man yells at cloud. Or at *the* Cloud?</p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/devsres-com/" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/mrrandrade" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//facebook.com/devsresnetwork" target="_blank" title="Facebook" class="fa fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/devsres" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:contact@devsres.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/ucertify-sysops-administrador-associate-review/">Ucertify AWS SysOps Certification review</a>
+              </h3>
+              
+              <time class="published" datetime='2020-04-01'>
+                April 1, 2020
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/aws-s3-bucket-policy/">AWS S3: creating bucket policy</a>
+              </h3>
+              
+              <time class="published" datetime='2019-11-10'>
+                November 10, 2019
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/aws-s3-static-website/">AWS S3: Hosting an static Website</a>
+              </h3>
+              
+              <time class="published" datetime='2019-11-10'>
+                November 10, 2019
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/aws-s3-using-cloudfront-for-https/">AWS S3: using Cloudfront for HTTPS</a>
+              </h3>
+              
+              <time class="published" datetime='2019-11-10'>
+                November 10, 2019
+              </time>
+            </header>
+            
+
+          </article>
+        
+      </div>
+
+      
+    </div>
+  </section>
+
+  
+  
+  
+  
+  
+    <section id="categories">
+      <header>
+        <h3>
+          <a href="/categories/">Categories</a>
+        </h3>
+      </header>
+        
+          
+        
+
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/aws/">aws</a>
+                <span style="float:right;">4</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/s3/">s3</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/cloudfront/">cloudfront</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/policy/">policy</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/review/">review</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/ssl/">ssl</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/sysop/">sysop</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/tls/">tls</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/ucertify/">ucertify</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+    </section>
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>Yell @ Cloud is all about an old school Sysadmin leaving the Cave of On-premisses tech and discovering the Cloud, figuring how to make it work and making some sense of it!</p>
+      <a href="/about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/devsres-com/" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/mrrandrade" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//facebook.com/devsresnetwork" target="_blank" title="Facebook" class="fa fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/devsres" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:contact@devsres.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2020
+        
+          Yell @ cloud
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+        
+        
+        
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="/js/util.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>
+
