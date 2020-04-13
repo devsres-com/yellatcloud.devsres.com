@@ -6,7 +6,7 @@
     <description>Recent content in sysop on Yell @ cloud</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/sysop/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Ucertify AWS SysOps Certification review</title>
       <link>/blog/ucertify-sysops-administrador-associate-review/</link>
-      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/blog/ucertify-sysops-administrador-associate-review/</guid>
       <description>Preamble - about myself For those who don&amp;rsquo;t know me, I come from a extreme Sysop background. For more than ten years, I&amp;rsquo;ve strayed away of the developer world problems, focusing on automation of regular infrastructure and other user-directed services. For the last years, though, I&amp;rsquo;ve been thrown on the eye of the hurricane that is the new agile aplication deployment and Devops world - thus becoming the senior sysadmin of the most insane, multipurpose Kubernetes-as-a-PaaS solution ever developed.</description>
