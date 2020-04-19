@@ -6,21 +6,10 @@
     <description>Recent content on Yell @ cloud</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>AWS with Terraform: why is my resource updated on every run?</title>
-      <link>/blog/aws-terraform/</link>
-      <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/aws-terraform/</guid>
-      <description>Note for Pros: Terraform noob tip. It&amp;rsquo;s not that relevant.
-Preamble I had a turbulent mission: learn both Terraform and AWS from scratch without ever using it before, building a full EKS cluster as IaaC. I also had two weeks.
-So, as expected, it was a hurricane of copy and paste from examples in the Internet - mainly official Terraform documentation - and methodology was &amp;ldquo;if it&amp;rsquo;s created, it&amp;rsquo;s fine!&amp;quot;.</description>
-    </item>
     
     <item>
       <title>Ucertify AWS SysOps Certification review</title>
